@@ -41,7 +41,10 @@ export function useInference(videoRef, hz = 30) {
       failedRef.current = true;
       setError(event.message || 'Inference worker failed');
     };
-    worker.postMessage({ type: 'init', modelUrl: '/best.onnx' });
+    worker.postMessage({
+      type: 'init',
+      modelUrl: `${import.meta.env.BASE_URL}best.onnx`
+    });
 
     // Inference loop (Hz-driven, NOT 60Hz)
     const timer = setInterval(() => {

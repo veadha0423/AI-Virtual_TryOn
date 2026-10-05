@@ -37,7 +37,7 @@ function SceneContent({ keypoints }) {
   const { viewport } = useThree();
   const [smoothing, setSmoothing] = useState({ input: null, output: null });
 
-  const texture = useTexture('/garment.png');
+  const texture = useTexture(`${import.meta.env.BASE_URL}garment.png`);
 
   if (keypoints && keypoints !== smoothing.input) {
     setSmoothing({
